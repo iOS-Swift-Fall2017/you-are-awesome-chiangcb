@@ -10,14 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var messageLabel: UILabel!
+    var index = Int(arc4random_uniform(5))
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        print("I love Sazan!")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func messageButtonPressed(_ sender: UIButton) {
+        let messages = ["You are awesome", "You are great", "You are fantastic", "You are amazing", "You are cool"]
+        messageLabel.text = messages[index]
+        index = (index + 1) % messages.count
+        
+        
+        
     }
 
 
